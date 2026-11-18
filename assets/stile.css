@@ -1,0 +1,96 @@
+/* Allegati della tesi, pagine interne. Regole: REGOLE_DESIGN_SITO_2026-11-11.md (titolo Oswald unico e grande, testo EB Garamond,
+   didascalie Lato corsivo, testatina come nel libro, linee di suolo di Eugenio come segno, niente riquadri, pillole o ombre). Claude, 11/11/2026. */
+@font-face{font-family:"EB Garamond";src:url(../font/ebgaramond.woff) format("woff");font-weight:400 800;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url(../font/ebgaramond-italic.woff) format("woff");font-weight:400 800;font-style:italic;font-display:swap}
+@font-face{font-family:Oswald;src:url(../font/oswald-regular.woff) format("woff");font-weight:300 400;font-display:swap}
+@font-face{font-family:Oswald;src:url(../font/oswald-semibold.woff) format("woff");font-weight:600 700;font-display:swap}
+@font-face{font-family:Lato;src:url(../font/lato-italic.woff) format("woff");font-style:italic;font-display:swap}
+:root{--petrolio:#0A4A43;--p:#0A4A43;--p3:#9EBAB5;--ocra:#AD8C5D;--carta:#F3F1EA;--ink:#232323;--ink2:#3d3c37;--g1:#6B6A62;--g2:#8f8c83;--riga:#d3cdbf;--zebra:#ebe7dd;--hl:#f7ecc8;--misura:40rem;
+ --T:clamp(2.6rem,6.4vw,6.8rem)}
+*{box-sizing:border-box}
+html{scroll-padding-top:5rem}
+body{margin:0;background:var(--carta);color:var(--ink);font:400 19px/1.55 "EB Garamond",Georgia,serif;-webkit-font-smoothing:antialiased;hyphens:auto}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--riga);text-underline-offset:.18em}
+a:hover{text-decoration-color:var(--p);color:var(--p)}
+:focus-visible{outline:2px solid var(--p);outline-offset:3px}
+.salta{position:absolute;left:-9999px}.salta:focus{left:16px;top:8px;background:var(--carta);padding:.3rem .6rem;z-index:9}
+/* testatina, come nel libro */
+header.testa{position:sticky;top:0;z-index:20;background:rgba(243,241,234,.94);backdrop-filter:blur(6px);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 4vw;font:400 12px Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--p)}
+header.testa a{text-decoration:none} header.testa nav{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
+header.testa nav .lett{display:flex;gap:.7rem;margin-left:.4rem;padding-left:1.4rem;border-left:1px solid var(--riga)}
+header.testa a[aria-current]{border-bottom:1px solid var(--p)}
+main{padding:9vh 4vw 4rem}
+/* titolo unico della pagina, con la linea di suolo */
+h1{font:700 var(--T)/.94 Oswald,"Arial Narrow",sans-serif;letter-spacing:-.01em;margin:0;color:var(--p);max-width:16ch}
+.suolo{display:block;background:currentColor;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;clip-path:inset(0 calc(100% - var(--cr,1) * 100%) 0 0);transition:clip-path 1.6s cubic-bezier(.3,.6,.2,1)}
+.sotto{color:var(--p);width:min(34rem,70vw);margin:2.2vh 0 4vh}
+.sotto.via{--cr:0}
+/* personaggi dello schizzo IMG_8438 in piedi sulla linea di suolo: chi va arriva con la linea, gli altri compaiono dopo */
+.terreno{position:relative;display:block;--x:1}
+/* a --x:1 il personaggio sta appena oltre la fine della linea, dove l'erba finisce e non lo copre */
+.omino{position:absolute;bottom:4%;height:var(--hf,100%);left:calc(var(--x) * (100% + .6rem));transform:translateX(calc(var(--x) * -12%));background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center bottom;mask-position:center bottom;transition:opacity .9s 1.2s,left 1.7s cubic-bezier(.3,.6,.2,1),transform 1.7s cubic-bezier(.3,.6,.2,1)}
+.sotto.via .omino{opacity:0} .sotto.via .omino.va{opacity:1;--x:0}
+.sotto .omino.va{transition:left 1.7s cubic-bezier(.3,.6,.2,1),transform 1.7s cubic-bezier(.3,.6,.2,1)}
+.occhiello,.did{font:italic 14px/1.4 Lato,sans-serif;color:var(--g1);margin:0}
+.attacco{font-size:1.25rem;line-height:1.45;max-width:36rem;color:var(--ink2);margin:1.4rem 0 0}
+/* titoli interni ai documenti: a misura di testo, non medi */
+h2{font:700 1.35rem/1.2 Oswald,sans-serif;margin:3.2rem 0 .6rem;color:var(--ink);letter-spacing:.01em}
+h3,h4{font:700 1.02rem/1.25 Oswald,sans-serif;margin:2rem 0 .3rem;color:var(--ink2);letter-spacing:.02em}
+.testo p,.testo li,.testo dd{max-width:var(--misura)} .testo p{margin:.55rem 0} .testo li{margin:.2rem 0}
+.muto{color:var(--g1)} .piccolo{font-size:.9rem}
+/* avvisi: una riga in corsivo con il filo ocra, non un riquadro */
+.avviso{font:italic 15px/1.45 Lato,sans-serif;color:var(--ink2);border-left:2px solid var(--ocra);padding:.1rem 0 .1rem 1rem;max-width:var(--misura);margin:1.6rem 0}
+.avviso b{font-style:normal;font-family:Oswald,sans-serif;font-weight:600;letter-spacing:.02em;margin-right:.3rem}
+/* collegamenti d'azione: testo sottolineato, non pulsanti */
+.bottoni{display:flex;gap:1.8rem;flex-wrap:wrap;margin:1.6rem 0;font:600 15px Oswald,sans-serif;letter-spacing:.04em}
+.bottone{text-decoration:none;border-bottom:1.5px solid var(--p);color:var(--p);padding-bottom:.15rem}
+.bottone.spento{border-bottom:1px dotted var(--g2);color:var(--g2);pointer-events:none}
+.etichette{display:none}
+/* indice degli allegati e liste di pagine */
+.griglia{display:block;margin-top:2rem}
+.scheda-allegato{display:grid;grid-template-columns:6rem minmax(0,1fr);column-gap:2rem;padding:1.4rem 0;border-top:1px solid var(--riga);text-decoration:none;color:var(--ink)}
+.scheda-allegato .lettera{grid-row:1/span 4;font:300 4.4rem/.85 Oswald,sans-serif;color:var(--p)}
+.scheda-allegato h3,.scheda-allegato h2{font:700 1.5rem/1.15 Oswald,sans-serif;margin:0;color:var(--ink)}
+.scheda-allegato p{margin:.25rem 0 0;max-width:42rem;color:var(--ink2)} .scheda-allegato p.muto{font:italic 14px Lato,sans-serif;color:var(--g1)}
+.scheda-allegato .terreno{grid-column:2;width:min(26rem,100%);margin-top:1.4rem;color:var(--p);--hf:4.2rem}
+a.scheda-allegato:hover h3,a.scheda-allegato:hover h2{color:var(--p)}
+.etichetta{display:none}
+/* dati in elenco */
+.dati{display:grid;grid-template-columns:max-content 1fr;gap:.3rem 1.4rem;margin:1.4rem 0;max-width:52rem}
+.dati dt{font:italic 14px/1.6 Lato,sans-serif;color:var(--g1)} .dati dd{margin:0}
+/* impianto con indice laterale (documenti lunghi) */
+.impianto{display:grid;gap:3rem;grid-template-columns:1fr;margin-top:3rem}
+@media (min-width:64rem){.impianto{grid-template-columns:15rem minmax(0,1fr)}.indice{position:sticky;top:5rem;align-self:start;max-height:calc(100vh - 6rem);overflow:auto}}
+.indice{font-size:.95rem} .indice summary{cursor:pointer;font:italic 14px Lato,sans-serif;color:var(--g1);margin-bottom:.6rem}
+.indice ol{list-style:none;padding:0;margin:0} .indice li{margin:.35rem 0;line-height:1.25} .indice a{text-decoration:none;color:var(--ink2)} .indice a:hover{color:var(--p)}
+/* ricerca e tavole */
+.cerca{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin:1.6rem 0}
+input[type=search]{font:inherit;font-size:1rem;padding:.4rem 0;border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);min-width:min(100%,22rem);border-radius:0}
+input[type=search]:focus{outline:none;border-bottom-color:var(--p)}
+.tavola{overflow-x:auto;border-top:1.5px solid var(--ink);margin:1rem 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:.92rem;line-height:1.35;width:100%}
+th{font:italic 13px/1.3 Lato,sans-serif;text-align:left;color:var(--g1);border-bottom:1px solid var(--riga);padding:.5rem .5rem;position:sticky;top:0;background:var(--carta);vertical-align:bottom}
+td{border-bottom:1px solid #e2ddd1;padding:.45rem .5rem;vertical-align:top}
+tr.nascosto{display:none}
+td.num{font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.cod{font:600 .85rem Oswald,sans-serif;color:var(--p);white-space:nowrap;letter-spacing:.02em}
+figure{margin:1.6rem 0;max-width:52rem} figure img{max-width:100%;height:auto;display:block;mix-blend-mode:multiply}
+figcaption,.didascalia{font:italic 14px/1.4 Lato,sans-serif;color:var(--g1);margin-top:.5rem;max-width:var(--misura)}
+.bib{padding-left:1.4rem;text-indent:-1.4rem;font-size:.95rem}
+/* interviste */
+.seg{position:relative;margin:.6rem 0;max-width:var(--misura)}
+.seg .sid{font:600 .72rem Oswald,sans-serif;letter-spacing:.04em;color:var(--g2);text-decoration:none;margin-right:.6rem}
+.seg:target{background:var(--hl);box-shadow:0 0 0 .4rem var(--hl)}
+.omissis{color:var(--g2);max-width:var(--misura)}
+.cita{margin-top:3rem;padding-top:1rem;font-size:.95rem;max-width:var(--misura);border-top:1px solid var(--riga)}
+/* piè di pagina con la linea di suolo */
+footer{padding:0 4vw 3rem;font:italic 13px/1.5 Lato,sans-serif;color:var(--g1)}
+footer .suolo{color:var(--p);width:100%;opacity:.85} footer .piede{color:var(--p);margin-bottom:1.4rem;width:min(52rem,68%);--hf:6rem}
+footer p{margin:.2rem 0;max-width:56rem}
+@media (max-width:56rem){header.testa nav .lett{display:none}h1{max-width:none}}
+@media print{header.testa,.indice,.cerca,.bottoni,footer .suolo{display:none}body{font-size:11pt;background:#fff}main{padding:0}a{text-decoration:none}}
+@media (prefers-reduced-motion:reduce){.suolo{transition:none}}
+/* 17/11/2026, prova: la linea di suolo diventa un elemento strutturante, una sola volta per pagina: la linea di terra
+   a tutta larghezza che chiude la testata del sito. Le linee sparse (sotto i titoli, nel piede, sotto le schede) si tolgono. */
+/* Esito della prova: alla linea di terra Eugenio dice «l'ho visto e non mi piace»: le linee di suolo si tolgono da tutto il sito. */
+.suolo,.terreno,.sotto{display:none!important}
